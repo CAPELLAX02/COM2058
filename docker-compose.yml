@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_com2058
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: com2058_db
+      MYSQL_USER: capellax
+      MYSQL_PASSWORD: capellax
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - com2058-network
+
+volumes:
+  mysql_data:
+
+networks:
+  com2058-network:
+    driver: bridge
